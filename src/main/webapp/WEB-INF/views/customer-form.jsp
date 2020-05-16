@@ -1,48 +1,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Save Customer</title>
-    <link rel="stylesheet" href="/resources/css/style.css"/>
-    <link rel="stylesheet" href="/resources/css/add-customer-style.css"/>
+    <title>CRM - Customer Relationship Manager</title>
+    <link type="text/css" rel="stylesheet" href="/resources/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet"/>
 </head>
+
 <body>
-    <div id="wrapper">
-        <div id="header">
-            <h2>CRM - Customer Relationship Manager</h2>
-        </div>
-        <div id="container">
-            <h3>Save Customer</h3>
-            <form:form action="saveCustomer" modelAttribute="customer" method="post">
-
-                <form:hidden path="id" />
-
-                <table>
-                    <tbody>
-                    <tr>
-                        <td><label>First name:</label></td>
-                        <td><form:input path="firstName" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>Last name:</label></td>
-                        <td><form:input path="lastName" /></td>
-                    </tr>
-                    <tr>
-                        <td><label>Email:</label></td>
-                        <td><form:input path="email" /></td>
-                    </tr>
-                    <tr>
-                        <td><label></label></td>
-                        <td><input type="submit" value="Save" class="save" /></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div style="clear: both"></div>
-                <p>
-                    <a href="/customer/list">Back to list</a>
-                </p>
-            </form:form>
-        </div>
-    </div>
+<div id="container">
+    <header id="header">
+        <h1>Customer Relationship Manager</h1>
+    </header>
+    <nav id="nav-bar">
+        <a href="/customer/list">< Back to list</a>
+    </nav>
+    <main id="main">
+        <form:form action="saveCustomer" modelAttribute="customer" method="post" cssClass="customer-form">
+            <form:hidden path="id" />
+            <form:input path="firstName" placeholder="first name" cssClass="customer-details"/>
+            <form:input path="lastName" placeholder="last name" cssClass="customer-details"/>
+            <form:input path="email" placeholder="email" cssClass="customer-details"/>
+            <button type="submit" id="submit" value="Save">Save</button>
+        </form:form>
+    </main>
+</div>
 </body>
 </html>
